@@ -1,0 +1,46 @@
+﻿@model CharacterDataModel
+@{
+    ViewData["Title"] = "Simple WoW Armory";
+    ViewData["Path"] = "Home/ViewCharacter";
+}
+    <div class="text-center">
+        <img src="~/IMGS/armory-logo.png" alt="Alternate Text" />
+    </div>
+    <br />
+    <div id="search-form" class="my-container text-center">
+        <form action="ViewCharacter" method="get">
+            <input type="text" name="characterName" placeholder="Search for your Character" />
+            <input type="text" name="characterRealm" placeholder="Realm" />
+            <br />
+            <br />
+            <input type="submit" name="submit-search" />
+            <button id="close-form" type="button">X</button>
+        </form>
+    </div>
+    <div class="text-center">
+        <button id="show-form"><i class="fa fa-search"></i></button>
+    </div>
+
+    <br />
+    
+    <div class="text-center">
+        <h1>@Model.CharacterData.Name <span id="realm">@Model.CharacterData.Realm</span> </h1>
+
+        @{ 
+            string power = Model.CharacterStatsData.Power_Type.Name;
+        }
+
+
+        <div class="grid-container">
+            <div class="grid-health">Health: @Model.CharacterStatsData.Health</div>
+            <div class="grid-@power">@power: @Model.CharacterStatsData.Power</div>
+            <div class="grid-int">Int: @Model.CharacterStatsData.Intellect.Effective</div>
+            <div class="grid-strength">Strength: @Model.CharacterStatsData.Strength.Effective</div>
+            <div class="grid-agility">Agility: @Model.CharacterStatsData.Agility.Effective</div>
+            <div class="grid-mastery">Mastery: @Model.CharacterStatsData.Mastery.Rating</div>
+            <div class="grid-versatility">Versatility: @Model.CharacterStatsData.Versatility</div>
+        </div>
+
+
+
+    </div>

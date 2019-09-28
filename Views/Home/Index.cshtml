@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="my-container text-center">
+        <img src="~/IMGS/armory-logo.png" alt="Alternate Text" />
+        <br />
+        <form action="Home/ViewCharacter" method="get">
+            <input type="text" name="characterName" placeholder="Search for your Character" />
+            <input type="text" name="characterRealm" placeholder="Realm" />
+            <br />
+            <br />
+            <input type="submit" name="submit-search" />
+        </form>
+    </div>
